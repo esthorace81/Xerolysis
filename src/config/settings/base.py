@@ -22,11 +22,13 @@ INSTALLED_APPS = [
 # Aplicaciones de terceros
 INSTALLED_APPS += [
     'django_cotton',
+    'phonenumber_field',
 ]
 
 # Aplicaciones propias
 INSTALLED_APPS += [
     'core',
+    'obras',
 ]
 
 MIDDLEWARE = [
