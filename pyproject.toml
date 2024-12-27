@@ -46,8 +46,11 @@ exclude = [
 ]
 
 [tool.ruff.lint]
-ignore = ["F401"]
+ignore = ["F401", ]
 extend-select = ["F", "I", "N", "A"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F403"]
 
 [tool.ruff.format]
 quote-style = "single"

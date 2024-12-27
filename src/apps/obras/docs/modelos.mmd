@@ -1,0 +1,77 @@
+erDiagram
+    Cliente {
+        t tipo_cliente 
+        t nombres "i"
+        t apellidos "i"
+        t razon_social "i"
+        t telefono "u"
+        t email "u"
+        t domicilio
+        d fecha_registro
+        t notas
+    }
+
+    Obra {
+        t domicilio
+        t descripcion_obra
+        n presupuesto
+        t telefono_contacto
+        t email_contacto
+        d fecha_inicio
+        d fecha_fin_estimado
+        d fecha_fin_real
+        t notas
+    }
+
+    Cliente ||--|{ Obra : "el cliente solicita una obra"
+
+    Incidencia {
+        _ obra_id "fk"
+        t tipo_incidencia
+        t descripcion_incidencia
+        b abierta_cerrada
+    }
+
+    Incidencia ||--|{ Obra : "una obra puede tener una incidencia"
+
+    Operario {
+        t nombres
+        t apellidos
+        t telefono "uk"
+        t dni "uk"
+        t email "uk"
+        t domicilio
+        d fecha_ingreso
+        d fecha_retiro
+        b operario_activo
+        t notas
+    }
+
+    AsignacionOperarioObra {
+        _ obra_id "fk, uk1"
+        _ operario_id "fk, uk1"
+        d fecha_asignacion
+        t notas
+    }
+    
+    Obra ||--|{ AsignacionOperarioObra : ""
+    Operario ||--|{ AsignacionOperarioObra : "una obra tiene asignado un operario"
+        
+    Material {
+        t nombre "uk"
+        t descripcion_material
+        n stock
+        n precio_unitario
+        d fecha_actualizacion_precio
+        t notas
+    }
+
+    AsignacionMaterialObra {
+        _ material_id "fk"
+        n cantidad
+        d fecha_instalacion
+    }
+
+    AsignacionMaterialObra ||--|{ Obra : ""
+    AsignacionMaterialObra ||--|{ Material : "una obra tiene material"
+    
