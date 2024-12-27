@@ -69,6 +69,23 @@ wheels = [
 ]
 
 [[package]]
+name = "django-phonenumber-field"
+version = "8.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/8f/d1/0a2ba41434d98ac9a2669ea7edfc8d1bc75055da450d94894c597913e01c/django_phonenumber_field-8.0.0.tar.gz", hash = "sha256:8a560fe1b01b94c9de8cde22bc373b695f023cc6df4baba00264cb079da9f631", size = 43759 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/fc/ab/4738a40d6f297688ecedd08cf6dc1608ad06c08ba3c03d1fc85b19ac6717/django_phonenumber_field-8.0.0-py3-none-any.whl", hash = "sha256:196c917b70c01a98e327f482eb8a4a4a55a29891db551f99078585397370b3ba", size = 66441 },
+]
+
+[package.optional-dependencies]
+phonenumbers = [
+    { name = "phonenumbers" },
+]
+
+[[package]]
 name = "djlint"
 version = "1.36.4"
 source = { registry = "https://pypi.org/simple" }
@@ -145,6 +162,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/ca/bc/f35b8446f4531a7cb215605d100cd88b7ac6f44ab3fc94870c120ab3adbf/pathspec-0.12.1.tar.gz", hash = "sha256:a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712", size = 51043 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/cc/20/ff623b09d963f88bfde16306a54e12ee5ea43e9b597108672ff3a408aad6/pathspec-0.12.1-py3-none-any.whl", hash = "sha256:a0d503e138a4c123b27490a4f7beda6a01c6f288df0e4a8b79c7eb0dc7b4cc08", size = 31191 },
+]
+
+[[package]]
+name = "phonenumbers"
+version = "8.13.52"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/2f/be/8d1698beaed180df58685a3d0e1aacac86a7b90e74a954ca489bd2a0a247/phonenumbers-8.13.52.tar.gz", hash = "sha256:fdc371ea6a4da052beb1225de63963d5a2fddbbff2bb53e3a957f360e0185f80", size = 2296342 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b0/fa/ccc322224bbe27434f67d8fae917affcf6af4a6ef55f82f16ae87d9c784d/phonenumbers-8.13.52-py2.py3-none-any.whl", hash = "sha256:e803210038ece9d208b129e3023dc20e656a820d6bf6f1cb0471d4164f54bada", size = 2582018 },
 ]
 
 [[package]]
@@ -278,6 +304,7 @@ source = { virtual = "." }
 dependencies = [
     { name = "django" },
     { name = "django-cotton" },
+    { name = "django-phonenumber-field", extra = ["phonenumbers"] },
     { name = "python-dotenv" },
 ]
 
@@ -292,6 +319,7 @@ dev = [
 requires-dist = [
     { name = "django", specifier = ">=5.1.4" },
     { name = "django-cotton", specifier = ">=1.5.1" },
+    { name = "django-phonenumber-field", extras = ["phonenumbers"], specifier = ">=8.0.0" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
 ]
 
