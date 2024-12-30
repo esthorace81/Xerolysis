@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.utils.timezone import now
 from phonenumber_field.modelfields import PhoneNumberField
 
 
@@ -24,8 +25,8 @@ class Cliente(models.Model):
     telefono = PhoneNumberField(unique=True, verbose_name='teléfono')
     email = models.EmailField(unique=True)
     domicilio = models.CharField(max_length=255, blank=True, null=True)
-    notas = models.TextField()
-    fecha_registro = models.DateTimeField(auto_now_add=True)
+    fecha_registro = models.DateTimeField(default=now, blank=True, null=True)
+    notas = models.TextField(blank=True, null=True)
 
     def clean(self):
         if self.tipo_cliente == self.PERSONA and (not self.nombres or not self.apellidos):
