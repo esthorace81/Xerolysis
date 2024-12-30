@@ -18,14 +18,16 @@ class Cliente(models.Model):
 
     # Para empresas
     razon_social = models.CharField(
-        max_length=200, blank=True, null=True, verbose_name='razón social', db_index=True
+        max_length=200, blank=True, null=True, verbose_name='Razón Social', db_index=True
     )
 
     # Campos comunes
-    telefono = PhoneNumberField(unique=True, verbose_name='teléfono')
+    telefono = PhoneNumberField(unique=True, verbose_name='Teléfono')
     email = models.EmailField(unique=True)
     domicilio = models.CharField(max_length=255, blank=True, null=True)
-    fecha_registro = models.DateTimeField(default=now, blank=True, null=True)
+    fecha_registro = models.DateTimeField(
+        default=now, blank=True, null=True, verbose_name='Fecha de Registro'
+    )
     notas = models.TextField(blank=True, null=True)
 
     def clean(self):

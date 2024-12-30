@@ -12,6 +12,7 @@ erDiagram
     }
 
     Obra {
+        _ cliente_id "fk"
         t domicilio
         t descripcion_obra
         n presupuesto
@@ -47,15 +48,15 @@ erDiagram
         t notas
     }
 
-    AsignacionOperarioObra {
+    OperarioObra {
         _ obra_id "fk, uk1"
         _ operario_id "fk, uk1"
         d fecha_asignacion
         t notas
     }
     
-    Obra ||--|{ AsignacionOperarioObra : ""
-    Operario ||--|{ AsignacionOperarioObra : "una obra tiene asignado un operario"
+    Obra ||--|{ OperarioObra : ""
+    Operario ||--|{ OperarioObra : "una obra tiene asignado un operario"
         
     Material {
         t nombre "uk"
@@ -66,12 +67,12 @@ erDiagram
         t notas
     }
 
-    AsignacionMaterialObra {
+    MaterialObra {
         _ material_id "fk"
         n cantidad
         d fecha_instalacion
     }
 
-    AsignacionMaterialObra ||--|{ Obra : ""
-    AsignacionMaterialObra ||--|{ Material : "una obra tiene material"
+    MaterialObra ||--|{ Obra : ""
+    MaterialObra ||--|{ Material : "una obra tiene material"
     
