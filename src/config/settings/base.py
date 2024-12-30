@@ -6,7 +6,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # Agregar la carpeta 'apps' a la ruta de Python
 sys.path.append(str(BASE_DIR / 'apps'))
 
-
+SECRET_KEY = 'dev'
+DEBUG = True
 ALLOWED_HOSTS = []
 
 # Aplicaciones de Django
