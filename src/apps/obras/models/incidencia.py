@@ -6,10 +6,10 @@ from .obra import Obra
 
 class Incidencia(models.Model):
     TIPOS_INCIDENCIA = [
-        ('MATERIAL', 'Problema con Material'),
-        ('TECNICA', 'Problema Técnico'),
-        ('ACCESO', 'Problema de Acceso'),
-        ('COMUNICACIÓN', 'Problema de Comunicación'),
+        ('MATERIAL', 'Problema con el Material'),
+        ('TECNICA', 'Problema Técnico en la Obra'),
+        ('ACCESO', 'Problema de Acceso a la Obra'),
+        ('COMUNICACIÓN', 'Problema de Comunicación con el Cliente'),
         ('OTRO', 'Otro'),
     ]
 
