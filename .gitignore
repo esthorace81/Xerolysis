@@ -1,5 +1,12 @@
+# Node.js
 node_modules/
 yarn-error.log
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+report.json
 
 # Python-generated files
 __pycache__/

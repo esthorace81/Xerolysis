@@ -12,7 +12,14 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = ["djlint>=1.36.4", "pytest>=8.3.4", "pytest-django>=4.9.0"]
+dev = [
+    "djlint>=1.36.4",
+    "pytest-cov>=6.0.0",
+    "pytest>=8.3.4",
+    "pytest-django>=4.9.0",
+    "pytest-xdist>=3.6.1",
+    "pytest-json-report>=1.5.0",
+]
 
 [tool.ruff]
 line-length = 100
@@ -70,3 +77,26 @@ custom_html = "c-\\w+"
 # format_js = true
 # no_set_formatting = true
 # no_function_formatting = true
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings.test"
+# Módulo de configuración de Django para las pruebas en src/config/settings/test.py
+# addopts = "--reuse-db --nomigrations --cov=src --cov-report html -n auto"
+addopts = "--reuse-db --nomigrations -n auto"
+# --reuse-db: Reutiliza la base de datos entre las pruebas
+# --nomigrations: No ejecuta las migraciones antes de las pruebas
+# --cov=src: Mide la cobertura de código en el directorio src (pytest-cov)
+# --cov-report html: Genera un reporte de cobertura en formato HTML (pytest-cov)
+# -n auto: Ejecuta las pruebas en paralelo (pytest-xdist)
+
+# [tool.coverage.run]
+# omit = [
+#     "manage.py",
+#     "*/migrations/*",
+#     "*/__init__.py",
+#     "**/config/*",
+#     "**/tests/*",
+#     "**/admin.py",
+#     "**/urls.py",
+#     "**/apps.py",
+# ]
